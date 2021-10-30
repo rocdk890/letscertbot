@@ -27,6 +27,11 @@ Let's Certbot 作为一个 Certbot 工具，支持 Docker 容器或非容器方�
 首先，克隆本仓库以获取 Let's Certbot:
 
 ```
+$ git clone https://github.com/rocdk890/letscertbot.git
+```
+or
+
+```
 $ git clone git@github.com:jinhucheung/letscertbot.git
 ```
 
@@ -40,6 +45,18 @@ $ cp config.json.example config.json
 ### 容器安装
 
 你可以通过 Docker 来执行 Let's Certbot:
+
+```
+docker run --rm \
+--name letscertbot \
+-v $your_letscertbot_home/config.json:/app/config.json \
+-v $your_letscertbot_home/tlds.txt:/app/tlds.txt \
+-v /etc/letsencrypt:/etc/letsencrypt \
+-v /var/lib/letsencrypt:/var/lib/letsencrypt \
+rocdk890/letscertbot:latest
+```
+
+or
 
 ```
 $ sudo docker run --rm --name letscertbot -v "$your_letscertbot_home/config.json:/app/config.json" -v "$your_letscertbot_home/tlds.txt:/app/tlds.txt" -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" jimcheung/letscertbot

@@ -29,6 +29,11 @@ Let's Certbot as a Certbot tool supports docker and non-docker environments.
 Clone this repository to get Let's Certbot:
 
 ```
+$ git clone https://github.com/rocdk890/letscertbot.git
+```
+or
+
+```
 $ git clone git@github.com:jinhucheung/letscertbot.git
 ```
 
@@ -42,6 +47,18 @@ $ cp config.json.example config.json
 ### Installing with Docker
 
 Run Let's Certbot with Docker:
+
+```
+docker run --rm \
+--name letscertbot \
+-v $your_letscertbot_home/config.json:/app/config.json \
+-v $your_letscertbot_home/tlds.txt:/app/tlds.txt \
+-v /etc/letsencrypt:/etc/letsencrypt \
+-v /var/lib/letsencrypt:/var/lib/letsencrypt \
+rocdk890/letscertbot:latest
+```
+
+or
 
 ```
 $ sudo docker run --rm --name letscertbot -v "$your_letscertbot_home/config.json:/app/config.json" -v "$your_letscertbot_home/tlds.txt:/app/tlds.txt" -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" jimcheung/letscertbot
