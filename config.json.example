@@ -1,0 +1,54 @@
+{
+  "base": {
+    "email": "your_email"
+  },
+  "dns": {
+    "wait_time": 20,
+    "aliyun": {
+      "access_key_id": "your_access_key_id",
+      "access_key_secret": "your_access_key_secret"
+    },
+    "qcloud": {
+      "secret_id": "your_secret_id",
+      "secret_key": "your_secret_key"
+    },
+    "godaddy": {
+      "api_key": "your_api_key",
+      "api_secret": "your_api_secret"
+    },
+    "huaweicloud": {
+      "access_key_id": "your_access_key_id",
+      "secret_access_key": "your_secret_access_key"
+    },
+    "cloudflare": {
+      "email": "your_account_email",
+      "api_key": "your_api_key",
+      "api_token": "your_api_token"
+    }
+  },
+  "log": {
+    "enable": false,
+    "logfile": "./log/application.log"
+  },
+  "deploy": {
+    "servers": [
+      {
+        "enable": false,
+        "host": "localhost",
+        "deploy_to": "",
+        "restart_nginx": false,
+        "after_hook": ""
+      },
+      {
+        "enable": false,
+        "host": "192.168.1.1",
+        "port": 22,
+        "user": "root",
+        "password": "",
+        "deploy_to": "/etc/letsencrypt/live",
+        "restart_nginx": false,
+        "after_hook": ""
+      }
+    ]
+  }
+}
